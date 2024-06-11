@@ -11,7 +11,10 @@ const Index = () => {
             <li className="nav-item">Notes List</li>
           </Link>
 
-          <li className="nav-item">Add Notes</li>
+          <Link to={"/addNotes"}>
+            {" "}
+            <li className="nav-item">Add Notes</li>
+          </Link>
         </ul>
       </header>
     </div>
