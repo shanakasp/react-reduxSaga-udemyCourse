@@ -1,3 +1,5 @@
+import "./notes.styles.scss";
+
 const dummyData = [
   {
     name: "First Note",
@@ -15,13 +17,7 @@ const dummyData = [
 
 const Index = () => {
   return (
-    <div className="container">
-      <header className="header">
-        <ul className="nav">
-          <li className="nav-item">Notes List</li>
-          <li className="nav-item">Add Notes</li>
-        </ul>
-      </header>
+    <div className="containerNotes">
       <h1>Notes List</h1>
       <ul>
         {dummyData.map((notes) => (
