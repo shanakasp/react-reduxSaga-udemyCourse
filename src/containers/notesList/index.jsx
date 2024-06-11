@@ -1,3 +1,4 @@
+import Header from "../../components/header/index";
 import "./notes.styles.scss";
 
 const dummyData = [
@@ -17,13 +18,17 @@ const dummyData = [
 
 const Index = () => {
   return (
-    <div className="containerNotes">
-      <h1>Notes List</h1>
-      <ul>
-        {dummyData.map((notes) => (
-          <li key={notes.id}>{notes.name}</li>
-        ))}
-      </ul>
+    <div>
+      {" "}
+      <Header></Header>
+      <div className="containerNotes">
+        <h1>Notes List</h1>
+        <ul>
+          {dummyData.map((notes) => (
+            <li key={notes.id}>{notes.name}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,13 +1,14 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Header from "./components/header/index";
+import Homepage from "./containers/homePage/index";
 import NotesList from "./containers/notesList/index";
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      <NotesList></NotesList>
-    </>
+    <Routes>
+      <Route path="/notes" element={<NotesList />} />
+      <Route path="/" element={<Homepage />} />
+    </Routes>
   );
 }
 
