@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Header from "../../components/header/index";
-import "./addNots.styles.scss"; // Correct the import statement
+import "./addNots.styles.scss";
 
 const Index = () => {
   const [text, setText] = useState("");
 
   const Submit = () => {
-    alert(text);
     console.log(text);
   };
 
@@ -17,7 +16,6 @@ const Index = () => {
       </div>
 
       <div className="containerAddNotes">
-        {" "}
         <h1>Add Notes</h1>
         <form>
           <label>
