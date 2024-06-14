@@ -1,12 +1,18 @@
-import { useState } from "react";
 import Header from "../../components/header/index";
+import useForm from "./UseForm";
 import "./addNots.styles.scss";
 
 const Index = () => {
-  const [text, setText] = useState("");
+  const { values, handleChange, resetForm } = useForm({
+    text1: "",
+    text2: "",
+    text3: "",
+  });
 
-  const Submit = () => {
-    console.log(text);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+    resetForm();
   };
 
   return (
@@ -17,19 +23,38 @@ const Index = () => {
 
       <div className="containerAddNotes">
         <h1>Add Notes</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
-            Enter your note
+            Enter your first note
             <input
               type="text"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
+              name="text1"
+              value={values.text1}
+              onChange={handleChange}
             />
           </label>
+          <label>
+            Enter your second note
+            <input
+              type="text"
+              name="text2"
+              value={values.text2}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Enter your third note
+            <input
+              type="text"
+              name="text3"
+              value={values.text3}
+              onChange={handleChange}
+            />
+          </label>
+          <div className="button">
+            <button type="submit">Submit</button>
+          </div>
         </form>
-        <div className="button">
-          <button onClick={Submit}>Submit</button>
-        </div>
       </div>
     </div>
   );
