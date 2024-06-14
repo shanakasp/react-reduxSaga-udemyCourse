@@ -1,0 +1,65 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$background-color: #f9f9f9;
+$button-hover-color: darken($secondary-color, 10%);
+
+.containerAddNotes {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 16px;
+      color: $text-color;
+      margin-bottom: 20px;
+
+      input {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid $primary-color;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .button button {
+    background-color: $secondary-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+  }
+}
