@@ -1,12 +1,48 @@
-# React + Vite
+mkdir my-express-app
+cd my-express-app
+npm init -y
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm install express sequelize sequelize-cli pg pg-hstore bcryptjs jsonwebtoken
+npm install --save-dev nodemon
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npx sequelize-cli init
 
-docker build -t react-app-dev .
+npx sequelize-cli model:generate --name User --attributes username:string,email:string,password:string,roleId:integer
 
-docker run -p 5173:5173 react-app-dev
+npx sequelize-cli model:generate --name Role --attributes name:string
+
+Create models
+
+npx sequelize-cli db:migrate
+
+nodemon server.js
+
+when data needs to send to db (Such as user roles, default admins etc)
+create that in Create a file seeders/20230614-create-roles.js:
+
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert('Roles', [
+      {
+        name: 'admin',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'user',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('Roles', null, {});
+  }
+};
+
+
+npx sequelize-cli db:seed:all
